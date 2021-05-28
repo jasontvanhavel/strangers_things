@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 
@@ -27,7 +27,7 @@ const App = () => {
                 <section id="lefty"></section>
                 <section id="content-main">
 
-                    <Home />
+                    <Route exact path='/Home' render={() => <Home />} />
 
                 </section>
                 <section id="sidenav">
@@ -44,5 +44,6 @@ const App = () => {
 
 
 ReactDOM.render(
+    
     <App />, document.getElementById('root')
 )
