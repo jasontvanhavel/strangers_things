@@ -1,0 +1,56 @@
+.user-post {
+    /* background-color: rgb(73, 73, 73); */
+    padding:1em;
+    padding-top: 0;
+    border-radius: 1em;
+    border: 3px solid white;
+    box-shadow: 0 0 5px 3px white;
+}
+
+.post-labels {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    grid-gap:3px;
+    padding:1em;
+
+}
+
+.post-price {
+    text-align: right;
+}
+
+.post-seller {
+    grid-column: 2;
+    text-align: right;
+}
+
+.post-deliverable {
+    text-align: right;
+}
+
+.post-title {
+    font-weight: bold;
+    font-size: 2em;
+    grid-row: 1 / span 2;
+}
+
+.post-description {
+    background-color: gray;
+    box-shadow: 0 0 3px 3px gray;
+    padding:1em;
+    border-radius: 0.5em;
+}
+
+.post-buttons {
+    display:flex;
+    flex-direction: row;
+    width:50%;
+    padding-left:1em;
+}
+
+.edit-post-button, .delete-post-button {
+    margin: 1em;
+    background:gray;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}

@@ -82,7 +82,9 @@ main #sidenav {
     height: 100%;
     width: 20%;
     border: 3px solid rgba(0,0,0,0);
-    color:rgb(255,88,80);;
+    color:rgb(255,88,80);
+    text-align: right;
+    padding:10px;
 }
 
 .registration {

@@ -8,7 +8,7 @@ const Navbar = (props) => {
 
     return <div>
         <Link to="/Register"><NavbarLink text="Register"/></Link>
-        <NavbarLink text="Login"/>
+        <Link to="/login"><NavbarLink text="Login"/></Link>
         <NavbarLink text="Logout"/>
         <Link to="/Home"><NavbarLink text="Home"/></Link>
         <NavbarLink text="New Post"/>

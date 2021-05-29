@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react'
 
-const Register = () => {
-    let [newUsername, setNewUsername] = useState('')
-    let [newPassword, setNewPassword] = useState('')
+const Login = () => {
+    let [Username, setUsername] = useState('')
+    let [Password, setPassword] = useState('')
 
-    //store newUsername and newPassword in an object
+    //store Username and Password in an object
 
     useEffect( () => {
-        setNewUsername(document.getElementById("username-input").value)
-        // console.log('use effect username:', newUsername)
-        setNewPassword(document.getElementById("password-input").value)
-        // console.log('password:', newPassword)
-    }, [newUsername, newPassword])
+        setUsername(document.getElementById("username-input").value)
+        // console.log('use effect username:', Username)
+        setPassword(document.getElementById("password-input").value)
+        // console.log('password:', Password)
+    }, [Username, Password])
 
     return(
         <>
-    <h1>Please enter your new username and password</h1>
-    <h5 className="registration">*Username and password must be a minimum of 6 characters and a maximum of 40</h5>
+    <h1>Please enter your  username and password</h1>
         <form onSubmit={(event) => {
             event.preventDefault();
-            setNewUsername(document.getElementById("username-input").value)
-            setNewPassword(document.getElementById("password-input").value)
-            // console.log(newUsername)
-            // console.log(newPassword)
+            setUsername(document.getElementById("username-input").value)
+            setPassword(document.getElementById("password-input").value)
+            // console.log(Username)
+            // console.log(Password)
         }}>
             <div>
                 <label htmlFor="username-input"></label>
@@ -48,12 +47,12 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Login
 /*  <input 
       placeholder='Enter a todo' 
-      value={newTodo}
+      value={Todo}
       onChange={(event) => {
           let value = event.target.value
-          setNewTodo(value)
+          setTodo(value)
       }}/>
     <button type='submit'>Submit</button>*/
