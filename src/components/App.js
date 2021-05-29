@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
 import Register from './Register';
-import Login from './Login'
+import Login from './Login';
+import NewPost from './NewPost';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
                     <Route exact path='/Home' render={() => <Home />} />
                     <Route exact path='/Register' render={() => <Register />} />
                     <Route exact path='/login' render={() => <Login />} />
+                    <Route exact path='/NewPost' render={() =>  <NewPost />} />
 
                 </section>
                 <section id="sidenav">

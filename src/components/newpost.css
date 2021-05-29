@@ -1,0 +1,38 @@
+#new-post {
+    display:flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+#new-post-form {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+#new-post-form > * {
+    height:40px;
+    display:flex;
+    flex-direction: column;
+    margin:10px;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#new-post-form input {
+    height:40px;
+    padding:3px;
+    font-size: 1em;
+}
+
+#delivery-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

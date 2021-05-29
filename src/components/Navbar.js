@@ -11,7 +11,7 @@ const Navbar = (props) => {
         <Link to="/login"><NavbarLink text="Login"/></Link>
         <NavbarLink text="Logout"/>
         <Link to="/Home"><NavbarLink text="Home"/></Link>
-        <NavbarLink text="New Post"/>
+        <Link to="/NewPost"><NavbarLink text="New Post"/></Link>
         <NavbarLink text="My Posts"/>
         <NavbarLink text="My Messages"/>
     </div>
