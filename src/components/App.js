@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
-
+import Register from './Register'
 
 
 const App = () => {
@@ -27,6 +27,7 @@ const App = () => {
                 <section id="content-main">
 
                     <Route exact path='/Home' render={() => <Home />} />
+                    <Route exact path='/Register' render={() => <Register />} />
 
                 </section>
                 <section id="sidenav">

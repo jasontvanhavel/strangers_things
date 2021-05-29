@@ -10,8 +10,8 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    color: red;
-    text-shadow: 0 0 0.5em red;
+    color: rgb(255,88,80);
+    text-shadow: 0 0 0.5em rgb(255,88,80);;
     height: 10vh;
     width: 100%;
     padding: 7px 15px;
@@ -38,9 +38,9 @@ header #navs {
     position:fixed;
     top:10vh;
     width:100%;
-    box-shadow: 0 0 0.5vh 0.5vh red;
+    box-shadow: 0 0 0.5vh 0.5vh rgb(255,88,80);;
     height: 3px;
-    background-color: red;
+    background-color: rgb(255,88,80);;
 }
 
 
@@ -60,7 +60,7 @@ main #lefty {
     height: 100%;
     width: 20%;
     /* border: 3px solid red; */
-    color:red;
+    color:rgb(255,88,80);;
 }
 
 main #content-main {
@@ -82,5 +82,9 @@ main #sidenav {
     height: 100%;
     width: 20%;
     border: 3px solid rgba(0,0,0,0);
-    color:red;
+    color:rgb(255,88,80);;
+}
+
+.registration {
+    padding-bottom: 20px;
 }
