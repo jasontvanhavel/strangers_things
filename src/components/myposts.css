@@ -1,0 +1,9 @@
+#my-posts {
+    display: flex;
+    flex-direction: column;
+}
+
+#my-posts > h3 {
+    color: #6b6b6b;
+    font-style: italic;
+}

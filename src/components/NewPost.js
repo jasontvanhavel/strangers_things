@@ -21,7 +21,7 @@ const NewPost = () =>{
             </div>
             <div id="delivery-box">
                 <label htmlFor="new-post-deliverable">Willing to Deliver?</label>
-                <input type="checkbox" name="new-post-deliverable" id="new-post-deliverable"></input>
+                <input type="checkbox" name="new-post-deliverable" id="new-post-deliverable" value="deliverable"></input>
             </div>
             <div id="post-description">
                 <label htmlFor="new-post-description">Description</label>

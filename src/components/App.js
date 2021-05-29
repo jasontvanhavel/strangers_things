@@ -5,6 +5,9 @@ import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 import NewPost from './NewPost';
+import MyPosts from './MyPosts';
+import MyMessages from './MyMessages';
+
 
 
 const App = () => {
@@ -32,6 +35,8 @@ const App = () => {
                     <Route exact path='/Register' render={() => <Register />} />
                     <Route exact path='/login' render={() => <Login />} />
                     <Route exact path='/NewPost' render={() =>  <NewPost />} />
+                    <Route exact path='/MyPosts' render={() =>  <MyPosts />} />
+                    <Route exact path='/MyMessages' render={() =>  <MyMessages />} />
 
                 </section>
                 <section id="sidenav">
