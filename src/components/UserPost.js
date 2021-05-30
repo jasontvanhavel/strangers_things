@@ -14,8 +14,13 @@ const UserPost = (props) => {
             <div className="post-description">{props.description}</div>
         </div>
         <div className="post-buttons">
+            {props.currentUser ?
+            <>
             <button className="edit-post-button">Edit Post</button>
-            <button className="delete-post-button">Delete Post</button>
+            <button className="delete-post-button">Delete Post</button> </> :
+            <button className="message-button">Message User</button>
+
+            }
         </div>
     </>
 

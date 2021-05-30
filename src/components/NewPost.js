@@ -2,9 +2,12 @@ import React from 'react';
 import './newpost.css';
 
 
-const NewPost = () =>{
+const NewPost = ({currentUser, }) => {
+    if (currentUser === '') {
+    return (<h1>Please login.</h1>)
+    }
 
-    return <div id="new-post">
+    return (<div id="new-post">
         <h1>Create New Post</h1>
         <form id="new-post-form">
             <div id="post-title">
@@ -28,7 +31,7 @@ const NewPost = () =>{
                 <textarea name="new-post-description" id="new-post-description" placeholder="Description"></textarea>
             </div>
         </form>
-    </div>
+    </div>)
 }
 
 export default NewPost;

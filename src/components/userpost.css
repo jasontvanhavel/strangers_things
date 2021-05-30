@@ -48,7 +48,7 @@
     padding-left:1em;
 }
 
-.edit-post-button, .delete-post-button {
+.edit-post-button, .delete-post-button, .message-button {
     margin: 1em;
     background:gray;
     padding: 0.5em;

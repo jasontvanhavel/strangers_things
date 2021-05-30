@@ -9,9 +9,10 @@ import MyPosts from './MyPosts';
 import MyMessages from './MyMessages';
 
 
-
 const App = () => {
 
+    const [currentUser, setCurrentUser] = useState('')
+    const [currentPassword, setCurrentPassword] = useState('')
     const [navStatus, setNavStatus] = useState(false) 
     
     console.log(navStatus)
@@ -31,17 +32,22 @@ const App = () => {
                 <section id="lefty"></section>
                 <section id="content-main">
 
-                    <Route exact path='/Home' render={() => <Home />} />
-                    <Route exact path='/Register' render={() => <Register />} />
-                    <Route exact path='/login' render={() => <Login />} />
-                    <Route exact path='/NewPost' render={() =>  <NewPost />} />
-                    <Route exact path='/MyPosts' render={() =>  <MyPosts />} />
-                    <Route exact path='/MyMessages' render={() =>  <MyMessages />} />
+                    <Route exact path='/Home' render={() => <Home currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+                    <Route exact path='/Register' render={() => <Register currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+                    <Route exact path='/login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+                    <Route exact path='/NewPost' render={() =>  <NewPost currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+                    <Route exact path='/MyPosts' render={() =>  <MyPosts currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+                    <Route exact path='/MyMessages' render={() =>  <MyMessages currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
 
                 </section>
                 <section id="sidenav">
                     
-                    {navStatus ? <Navbar /> : ''}
+                    {navStatus ? <Navbar 
+                                    currentUser={currentUser} 
+                                    setCurrentUser={setCurrentUser}
+                                    currentPassword={currentPassword}
+                                    setCurrentPassword={setCurrentPassword}
+                                    /> : ''}
 
                 </section>
             </main>

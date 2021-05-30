@@ -1,7 +1,9 @@
 import React from "react";
 import UserPost from './UserPost'
 
-const Home = () => {
+const Home = ({currentUser}) => {
+    console.log(currentUser)
+    
     return <>
         <UserPost
             title="test title"
