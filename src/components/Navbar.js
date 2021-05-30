@@ -1,28 +1,35 @@
 import React from "react";
 import NavbarLink from "./NavbarLink";
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import './navbar.css';
 
 
 
 const Navbar = ({currentUser, setCurrentUser, currentPassword, setCurrentPassword}) => {
-    let handleClick = () => {
-        if (!currentUser) {
+    let handleLogoutClick = () => {
+        if (currentUser) {
         setCurrentUser('') 
         setCurrentPassword('')
         console.log({currentUser})
         console.log({currentPassword})}
     }
 
-    return <div>
+    let handleOtherClick = () => {
+
+    }
+
+    return <div id="navbar-div">
         {!currentUser ? <>
-        <Link to="/Register"><NavbarLink text="Register"/></Link>
-        <Link to="/login"><NavbarLink text="Login"/></Link>
-        </> : <NavbarLink text="Logout" clickHandler={handleClick}/>}
+        <Link to="/Register" style={{textDecoration: 'none'}}><NavbarLink text="Register" clickHandler={handleOtherClick}/></Link>
+        <Link to="/login" style={{textDecoration: 'none'}}><NavbarLink text="Login" clickHandler={handleOtherClick}/></Link>
+        </> : <NavbarLink text="Logout" clickHandler={handleLogoutClick}/>}
         
-        <Link to="/Home"><NavbarLink text="Home"/></Link>
-        <Link to="/NewPost"><NavbarLink text="New Post"/></Link>
-        <Link to="/MyPosts"><NavbarLink text="My Posts"/></Link>
-        <Link to="/MyMessages"><NavbarLink text="My Messages"/></Link>
+        <Link to="/Home" style={{textDecoration: 'none'}}><NavbarLink text="Home" clickHandler={handleOtherClick}/></Link>
+        {currentUser ? <>
+        <Link to="/NewPost" style={{textDecoration: 'none'}}><NavbarLink text="New Post" clickHandler={handleOtherClick}/></Link>
+        <Link to="/MyPosts" style={{textDecoration: 'none'}}><NavbarLink text="My Posts" clickHandler={handleOtherClick}/></Link>
+        <Link to="/MyMessages" style={{textDecoration: 'none'}}><NavbarLink text="My Messages" clickHandler={handleOtherClick}/></Link>
+        </> : '' }
     </div>
 }
 

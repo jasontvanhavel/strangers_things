@@ -11,8 +11,8 @@ import MyMessages from './MyMessages';
 
 const App = () => {
 
-    const [currentUser, setCurrentUser] = useState('')
-    const [currentPassword, setCurrentPassword] = useState('')
+    const [currentUser, setCurrentUser] = useState('test seller')
+    const [currentPassword, setCurrentPassword] = useState('asdf')
     const [navStatus, setNavStatus] = useState(false) 
     
     console.log(navStatus)
@@ -34,7 +34,7 @@ const App = () => {
 
                     <Route exact path='/Home' render={() => <Home currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
                     <Route exact path='/Register' render={() => <Register currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-                    <Route exact path='/login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+                    <Route exact path='/login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser} currentPassword={currentPassword} setCurrentPassword={setCurrentPassword}/>} />
                     <Route exact path='/NewPost' render={() =>  <NewPost currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/MyPosts' render={() =>  <MyPosts currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/MyMessages' render={() =>  <MyMessages currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />

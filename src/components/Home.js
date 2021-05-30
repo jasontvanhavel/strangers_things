@@ -12,6 +12,7 @@ const Home = ({currentUser}) => {
             seller="test seller"
             location="test location"
             deliverable={true}
+            currentUser={currentUser}
         />
     </>
 
