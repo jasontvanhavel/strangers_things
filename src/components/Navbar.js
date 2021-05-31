@@ -22,7 +22,7 @@ const Navbar = ({currentUser, setCurrentUser, currentPassword, setCurrentPasswor
         {!currentUser ? <>
         <Link to="/Register" style={{textDecoration: 'none'}}><NavbarLink text="Register" clickHandler={handleOtherClick}/></Link>
         <Link to="/login" style={{textDecoration: 'none'}}><NavbarLink text="Login" clickHandler={handleOtherClick}/></Link>
-        </> : <NavbarLink text="Logout" clickHandler={handleLogoutClick}/>}
+        </> : <Link to="/Home" style={{textDecoration: 'none'}}><NavbarLink text="Logout" clickHandler={handleLogoutClick}/></Link>}
         
         <Link to="/Home" style={{textDecoration: 'none'}}><NavbarLink text="Home" clickHandler={handleOtherClick}/></Link>
         {currentUser ? <>

@@ -7,11 +7,12 @@ import Login from './Login';
 import NewPost from './NewPost';
 import MyPosts from './MyPosts';
 import MyMessages from './MyMessages';
+import NewMessage from './NewMessage';
 
 
 const App = () => {
 
-    const [currentUser, setCurrentUser] = useState('test seller')
+    const [currentUser, setCurrentUser] = useState('regular seller')
     const [currentPassword, setCurrentPassword] = useState('asdf')
     const [navStatus, setNavStatus] = useState(false) 
     
@@ -38,6 +39,7 @@ const App = () => {
                     <Route exact path='/NewPost' render={() =>  <NewPost currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/MyPosts' render={() =>  <MyPosts currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/MyMessages' render={() =>  <MyMessages currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+                    <Route exact path='/NewMessage' render={() =>  <NewMessage currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
 
                 </section>
                 <section id="sidenav">

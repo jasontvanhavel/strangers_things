@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import './userpost.css';
 
 const UserPost = ({
@@ -51,7 +52,7 @@ const UserPost = ({
                             {editable ? 'Save Changes' : 'Edit Post'}</button>
                         <button className="delete-post-button">Delete Post</button> 
                     </> :
-                    <button className="message-button">Message User</button> 
+                    <Link to="/NewMessage" className="reply-button" style={{textDecoration: 'none'}}>Reply</Link> 
                 }
                 </> : ''
             }

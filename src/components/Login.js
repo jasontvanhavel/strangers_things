@@ -39,7 +39,7 @@ const Login = ({currentUser, setCurrentUser, currentPassword, setCurrentPassword
                     name="password-input" 
                     placeholder="Password"
                     ></input>
-            </div><Link to="/Home" onClick={loginHandler}>Submit</Link>
+            </div><Link to="/Home" className="reply-button" style={{textDecoration: 'none'}} onClick={loginHandler}>Submit</Link>
         </>
     )
 }

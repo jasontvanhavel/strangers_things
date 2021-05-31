@@ -54,3 +54,12 @@
     padding: 0.5em;
     border-radius: 0.5em;
 }
+
+.reply-button {
+    margin: 1em;
+    background:gray;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    color: white;
+
+}
