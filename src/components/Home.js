@@ -3,7 +3,7 @@ import axios from 'axios';
 import UserPost from './UserPost'
 
 
-const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-web-ft';
+const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft';
 
 
 // function postMatches(post, text) {

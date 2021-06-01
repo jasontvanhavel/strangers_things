@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-web-ft';
+const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft';
 
 const Register = () => {
     let [newUsername, setNewUsername] = useState('')
@@ -9,19 +9,20 @@ const Register = () => {
 
     //store newUsername and newPassword in an object
 
-    useEffect( () => {
-        setNewUsername(document.getElementById("username-input").value)
-        // console.log('use effect username:', newUsername)
-        setNewPassword(document.getElementById("password-input").value)
-        // console.log('password:', newPassword)
-    }, [newUsername, newPassword])
+    // useEffect( () => {
+    //     setNewUsername(document.getElementById("username-input").value)
+    //     // console.log('use effect username:', newUsername)
+    //     setNewPassword(document.getElementById("password-input").value)
+    //     // console.log('password:', newPassword)
+    // }, [newUsername, newPassword])
 
     async function postNewUser() {
-        let newUser = {username: newUsername, password: newPassword}
+        let newUser = {user: {username: newUsername, password: newPassword}}
+        console.log(newUser)
+        
         console.log((await axios.post(BASE_URL+'/users/register', newUser)).data)
 
     }
-
 
     return(
         <>
@@ -30,11 +31,14 @@ const Register = () => {
         <form onSubmit={(event) => {
             event.preventDefault();
 
-            setNewUsername(document.getElementById("username-input").value)
-            setNewPassword(document.getElementById("password-input").value)
+            
             postNewUser()
+            // setNewUsername(document.getElementById("username-input").value)
+            // setNewPassword(document.getElementById("password-input").value)
+
             // console.log(newUsername)
             // console.log(newPassword)
+
         }}>
             <div>
                 <label htmlFor="username-input"></label>
@@ -43,6 +47,9 @@ const Register = () => {
                     id="username-input"
                     name="username-input" 
                     placeholder="Username"
+                    onChange={(event) => {
+                        setNewUsername(event.target.value)
+                    }}
                     ></input>
             </div>
             <div>
@@ -52,6 +59,9 @@ const Register = () => {
                     id="password-input"
                     name="password-input" 
                     placeholder="Password"
+                    onChange={(event) => {
+                        setNewPassword(event.target.value)
+                    }}
                     ></input>
             </div>
             <button type='submit'>Submit</button>
