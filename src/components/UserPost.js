@@ -37,7 +37,7 @@ const UserPost = ({
                     <div className="post-price">{price}</div>
                     <div className="post-seller">{seller}</div>
                     <div className="post-location">{location}</div>
-                    <div className="post-deliverable">{deliverable ? "Willing to Deliver" : "Not Willing to Deliver"}</div>
+                    <div className="post-deliverable">{deliverable ? "Willing to Deliver" : "Pickup Only"}</div>
                     <div className="post-description">{description}</div>
                 </> }
                 </div>

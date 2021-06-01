@@ -17,8 +17,9 @@ const App = () => {
     const [currentUser, setCurrentUser] = useState('')
     const [currentPassword, setCurrentPassword] = useState('')
     const [navStatus, setNavStatus] = useState(false) 
+    const [searchTerm, setSearchTerm] = useState('')
     
-    
+    console.log(searchTerm)
 
     return <div id ="app">
         <Router>
@@ -26,7 +27,12 @@ const App = () => {
                 <img src={'./STlogo.png'}></img>
                 <div id="navs">
                     <label htmlFor="search-bar"></label>
-                    <input type="text" id="search-bar" name="search-bar" placeholder="Search"></input>
+                    <input type="text" 
+                            id="search-bar" 
+                            name="search-bar" 
+                            placeholder="Search" 
+                            onChange={ (event) => {
+                                setSearchTerm(event.target.value) }}></input>
                     <a className="hamburger" onClick={() => setNavStatus(!navStatus)} ><i className="material-icons">menu</i></a>
                 </div>
             </header>
@@ -35,7 +41,7 @@ const App = () => {
                 <section id="lefty"></section>
                 <section id="content-main">
 
-                    <Route exact path='/Home' render={() => <Home currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+                    <Route exact path='/Home' render={() => <Home currentUser={currentUser} setCurrentUser={setCurrentUser} searchTerm={searchTerm}/>} />
                     <Route exact path='/Register' render={() => <Register currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser} currentPassword={currentPassword} setCurrentPassword={setCurrentPassword}/>} />
                     <Route exact path='/NewPost' render={() =>  <NewPost currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />

@@ -6,21 +6,18 @@ import UserPost from './UserPost'
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-web-ft';
 
 
-function postMatches(post, text) {
-  // return true if any of the fields you want to check against include the text
-  // strings have an .includes() method 
-}
+// function postMatches(post, text) {
+//   // return true if any of the fields you want to check against include the text
+//   // strings have an .includes() method 
+// }
 
 
 
 // then, in our jsx below... map over postsToDisplay instead of posts
 
-const Home = ({currentUser}) => {
+const Home = ({currentUser, searchTerm}) => {
 
     const [posts, setPosts] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
-
-   
 
     async function getPosts() {
         let data = (await axios.get(BASE_URL + '/posts')).data
@@ -31,10 +28,9 @@ const Home = ({currentUser}) => {
         setPosts(await getPosts());
     }, [])
 
-    useEffect ( () => {
-        setSearchTerm(document.getElementById('search-bar').value);
+    // useEffect ( () => {
 
-        const postMatches = function(post, term){
+        const postMatches = function(post, term) {
             if (post.title.includes(term) || post.description.includes(term) ||
                 post.price.includes(term) || post.author.username.includes(term) || post.location.includes(term)){
                     return true;
@@ -45,14 +41,14 @@ const Home = ({currentUser}) => {
 
         const filteredPosts = posts.filter(post => postMatches(post, searchTerm));
         const postsToDisplay = searchTerm.length ? filteredPosts : posts;
-    }, [document.getElementById('search-bar').value])
+    // }, [])
 
     console.log(posts)
 
     return <>
     { currentUser ? 
         <>
-            {posts.map( (post) => {
+            {postsToDisplay.map( (post) => {
                 return <UserPost
                     title={post.title}
                     description={post.description}
@@ -66,7 +62,7 @@ const Home = ({currentUser}) => {
             }
         </> :
         <>
-            {posts.map( (post) => {
+            {postsToDisplay.map( (post) => {
                 return <UserPost
                     title={post.title}
                     description={post.description}

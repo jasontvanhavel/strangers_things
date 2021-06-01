@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-web-ft';
 
 const Register = () => {
     let [newUsername, setNewUsername] = useState('')
@@ -13,14 +16,23 @@ const Register = () => {
         // console.log('password:', newPassword)
     }, [newUsername, newPassword])
 
+    async function postNewUser() {
+        let newUser = {username: newUsername, password: newPassword}
+        console.log((await axios.post(BASE_URL+'/users/register', newUser)).data)
+
+    }
+
+
     return(
         <>
     <h1>Please enter your new username and password</h1>
     <h5 className="registration">*Username and password must be a minimum of 6 characters and a maximum of 40</h5>
         <form onSubmit={(event) => {
             event.preventDefault();
+
             setNewUsername(document.getElementById("username-input").value)
             setNewPassword(document.getElementById("password-input").value)
+            postNewUser()
             // console.log(newUsername)
             // console.log(newPassword)
         }}>
