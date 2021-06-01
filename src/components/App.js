@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import axios from 'axios';
 import Navbar from './Navbar';
 import Home from './Home';
 import Register from './Register';
@@ -9,19 +10,20 @@ import MyPosts from './MyPosts';
 import MyMessages from './MyMessages';
 import NewMessage from './NewMessage';
 
+const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-web-ft';
 
 const App = () => {
 
-    const [currentUser, setCurrentUser] = useState('regular seller')
-    const [currentPassword, setCurrentPassword] = useState('asdf')
+    const [currentUser, setCurrentUser] = useState('')
+    const [currentPassword, setCurrentPassword] = useState('')
     const [navStatus, setNavStatus] = useState(false) 
     
-    console.log(navStatus)
+    
 
     return <div id ="app">
         <Router>
             <header>
-                <h1>Logo Here!</h1>
+                <img src={'./STlogo.png'}></img>
                 <div id="navs">
                     <label htmlFor="search-bar"></label>
                     <input type="text" id="search-bar" name="search-bar" placeholder="Search"></input>

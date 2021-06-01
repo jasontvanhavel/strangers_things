@@ -49,7 +49,6 @@ main {
     flex-direction: row;
     justify-content: space-between;
     background-color: black;
-    height:100vh;
     width:100%;
     padding-top:10px;
 }
@@ -90,4 +89,8 @@ main #sidenav {
 
 .registration {
     padding-bottom: 20px;
+}
+
+img {
+    height:40px;
 }

@@ -10,8 +10,9 @@ const Navbar = ({currentUser, setCurrentUser, currentPassword, setCurrentPasswor
         if (currentUser) {
         setCurrentUser('') 
         setCurrentPassword('')
-        console.log({currentUser})
-        console.log({currentPassword})}
+        // console.log({currentUser})
+        // console.log({currentPassword})
+    }
     }
 
     let handleOtherClick = () => {
