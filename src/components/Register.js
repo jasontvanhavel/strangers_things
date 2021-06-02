@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft';
 
-const Register = ({currentUser, setCurrentUser}) => {
+const Register = ({currentUser, setCurrentUserState}) => {
     let [newUsername, setNewUsername] = useState('')
     let [newPassword, setNewPassword] = useState('')
     let [message, setMessage] = useState('');
@@ -14,9 +14,10 @@ const Register = ({currentUser, setCurrentUser}) => {
         try {
             let response = (await axios.post(BASE_URL+'/users/register', newUser)).data;
             localStorage.setItem('currentUserToken', response.data.token)
+            localStorage.setItem('currentUser', newUsername)
 
             if (response.success) {
-                setCurrentUser(newUser.user.username);
+                setCurrentUserState(newUser.user.username);
             } else {
                 setMessage(response.message)
             }
