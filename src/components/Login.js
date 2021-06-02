@@ -6,7 +6,14 @@ const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft'
 const Login = ({currentUser, setCurrentUser}) => {
     let [inputUsername, setInputUsername] = useState('');
     let [inputPassword, setInputPassword] = useState('');
-    let [message, setMessage] = useState('');
+    
+    let loginMessage = ""
+
+    useEffect (() =>{
+        loginMessage="You are now logged in as " + currentUser;
+        // document.getElementById("message-div").innerText(loginMessage)
+
+    }, [currentUser])
 
     async function login () {
         let inputUser = {user: {username: inputUsername, password: inputPassword}}
@@ -16,13 +23,14 @@ const Login = ({currentUser, setCurrentUser}) => {
             localStorage.setItem('currentUserToken', response.data.token)
 
             setCurrentUser(inputUser.user.username);
-            console.log("currentUser:", currentUser)
+
             console.log('inputUser.user.username', inputUser.user.username)
             localStorage.setItem('currentUser', currentUser);
+            console.log("currentUser:", currentUser)
 
 
         } catch (error) {
-            setMessage("Sorry, we do not recognize that username and password combination");
+            loginMessage="Sorry, we do not recognize that username and password combination";
         }
     }
 
@@ -56,10 +64,10 @@ const Login = ({currentUser, setCurrentUser}) => {
             </div><div className="reply-button" style={{textDecoration: 'none'}}
             onClick={() => {
                 login();
+                // currentUser ? <div id="message-div"></div> :
                 // setMessage("You are now logged in as " + currentUser)
             }}>Submit</div>
 
-            <div id="message-div">{message}</div>
         </>
     )
 }

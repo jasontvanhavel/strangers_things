@@ -12,7 +12,7 @@
 }
 
 #new-post-form > * {
-    height:40px;
+    height: 80px;
     display:flex;
     flex-direction: column;
     margin:10px;
@@ -26,7 +26,7 @@ label {
 }
 
 #new-post-form input {
-    height:40px;
+    height: 40px;
     padding:3px;
     font-size: 1em;
 }
