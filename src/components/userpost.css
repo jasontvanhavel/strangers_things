@@ -48,18 +48,10 @@
     padding-left:1em;
 }
 
-.edit-post-button, .delete-post-button, .message-button {
+.reply-button, .edit-post-button, .delete-post-button, .message-button {
     margin: 1em;
     background:gray;
     padding: 0.5em;
     border-radius: 0.5em;
-}
-
-.reply-button {
-    margin: 1em;
-    background:gray;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    color: white;
-
+    cursor: pointer;
 }

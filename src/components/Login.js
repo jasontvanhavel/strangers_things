@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import currentUser from './App';
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft';
 
-const Login = ({currentUser, setCurrentUser}) => {
+const Login = ({currentUser, setCurrentUserState}) => {
     let [inputUsername, setInputUsername] = useState('');
     let [inputPassword, setInputPassword] = useState('');
     
-    let loginMessage = ""
+    let [loginMessage, setLoginMessage] = useState('');
 
     useEffect (() =>{
         loginMessage="You are now logged in as " + currentUser;
-        // document.getElementById("message-div").innerText(loginMessage)
 
     }, [currentUser])
 
@@ -22,15 +22,15 @@ const Login = ({currentUser, setCurrentUser}) => {
             let response = (await axios.post(BASE_URL+'/users/login', inputUser)).data;
             localStorage.setItem('currentUserToken', response.data.token)
 
-            setCurrentUser(inputUser.user.username);
+            currentUser = inputUser.user.username;
+            setCurrentUserState(currentUser)
 
-            console.log('inputUser.user.username', inputUser.user.username)
             localStorage.setItem('currentUser', currentUser);
-            console.log("currentUser:", currentUser)
+            setLoginMessage("You are now logged in as " + currentUser)
 
 
         } catch (error) {
-            loginMessage="Sorry, we do not recognize that username and password combination";
+            setLoginMessage("Sorry, we do not recognize that username and password combination");
         }
     }
 
@@ -65,9 +65,9 @@ const Login = ({currentUser, setCurrentUser}) => {
             onClick={() => {
                 login();
                 // currentUser ? <div id="message-div"></div> :
-                // setMessage("You are now logged in as " + currentUser)
+                
             }}>Submit</div>
-
+        <div id="login-message">{loginMessage}</div>
         </>
     )
 }

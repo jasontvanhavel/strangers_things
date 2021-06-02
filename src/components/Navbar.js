@@ -5,11 +5,11 @@ import './navbar.css';
 
 
 
-const Navbar = ({currentUser, setCurrentUser, currentPassword, setCurrentPassword}) => {
+const Navbar = ({currentUser, currentUserState, setCurrentUserState}) => {
     let handleLogoutClick = () => {
-        if (currentUser) {
-        setCurrentUser('') 
-        setCurrentPassword('')
+        if (localStorage.getItem('currentUser')) {
+            localStorage.clear();
+            setCurrentUserState('');
         // console.log({currentUser})
         // console.log({currentPassword})
     }
@@ -20,13 +20,16 @@ const Navbar = ({currentUser, setCurrentUser, currentPassword, setCurrentPasswor
     }
 
     return <div id="navbar-div">
-        {!currentUser ? <>
+        {!(currentUserState) ? <>
+        {/* The only way we could remove the underlines was through the inline textDecoration thing.  Separate
+        CSS just refused to work for some reason.  Worked for other CSS properties, though, like color */}
         <Link to="/Register" style={{textDecoration: 'none'}}><NavbarLink text="Register" clickHandler={handleOtherClick}/></Link>
         <Link to="/login" style={{textDecoration: 'none'}}><NavbarLink text="Login" clickHandler={handleOtherClick}/></Link>
-        </> : <Link to="/Home" style={{textDecoration: 'none'}}><NavbarLink text="Logout" clickHandler={handleLogoutClick}/></Link>}
+        </> : 
+        <Link to="/Home" style={{textDecoration: 'none'}}><NavbarLink text="Logout" clickHandler={handleLogoutClick}/></Link>}
         
         <Link to="/Home" style={{textDecoration: 'none'}}><NavbarLink text="Home" clickHandler={handleOtherClick}/></Link>
-        {currentUser ? <>
+        {(currentUserState) ? <>
         <Link to="/NewPost" style={{textDecoration: 'none'}}><NavbarLink text="New Post" clickHandler={handleOtherClick}/></Link>
         <Link to="/MyPosts" style={{textDecoration: 'none'}}><NavbarLink text="My Posts" clickHandler={handleOtherClick}/></Link>
         <Link to="/MyMessages" style={{textDecoration: 'none'}}><NavbarLink text="My Messages" clickHandler={handleOtherClick}/></Link>

@@ -13,12 +13,12 @@ const NewPost = ({currentUser, }) => {
 
     async function createNewPost () {
         
-        let newPost = {
+        let newPost = { post: {
                         title: document.getElementById("new-post-title").value,
                         description: document.getElementById("new-post-description").value,
                         price: document.getElementById("new-post-price").value,
                         willDeliver: document.getElementById("new-post-deliverable").checked,
-                }
+                }}
                 console.log(newPost)
         try {
             let response = (await axios.post(BASE_URL+'/posts', 

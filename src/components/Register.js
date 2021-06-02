@@ -17,7 +17,6 @@ const Register = ({currentUser, setCurrentUser}) => {
 
             if (response.success) {
                 setCurrentUser(newUser.user.username);
-                console.log(newUser)
             } else {
                 setMessage(response.message)
             }

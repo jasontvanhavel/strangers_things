@@ -44,7 +44,7 @@ const Home = ({currentUser, searchTerm}) => {
     // }, [])
 
     return <>
-    { currentUser ? 
+    { localStorage.getItem('currentUser') ? 
         <>
             {postsToDisplay.map( (post) => {
                 return <UserPost
@@ -54,8 +54,9 @@ const Home = ({currentUser, searchTerm}) => {
                     seller={post.author.username}
                     location={post.location}
                     deliverable={post.willDeliver}
-                    currentUser={currentUser}
+                    currentUser={localStorage.getItem('currentUser')}
                     key={post._id}
+                    id={post._id}
                 />})
             }
         </> :
@@ -68,7 +69,7 @@ const Home = ({currentUser, searchTerm}) => {
                     seller={post.author.username}
                     location={post.location}
                     deliverable={post.willDeliver}
-                    currentUser={currentUser}
+                    currentUser={localStorage.getItem('currentUser')}
                     key={post._id}
                 />})
             }

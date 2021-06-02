@@ -12,14 +12,14 @@ import NewMessage from './NewMessage';
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft';
 
-
+let currentUser;
 
 const App = () => {
 
-    const [currentUser, setCurrentUser] = useState('')
-    const [currentPassword, setCurrentPassword] = useState('')
+    // const [currentUser, setCurrentUser] = useState('')
     const [navStatus, setNavStatus] = useState(false) 
     const [searchTerm, setSearchTerm] = useState('')
+    const [currentUserState, setCurrentUserState] = useState('');
 
     return <div id ="app">
         <Router>
@@ -41,22 +41,21 @@ const App = () => {
                 <section id="lefty"></section>
                 <section id="content-main">
 
-                    <Route exact path='/Home' render={() => <Home currentUser={currentUser} setCurrentUser={setCurrentUser} searchTerm={searchTerm}/>} />
-                    <Route exact path='/Register' render={() => <Register currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-                    <Route exact path='/login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
-                    <Route exact path='/NewPost' render={() =>  <NewPost currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-                    <Route exact path='/MyPosts' render={() =>  <MyPosts currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-                    <Route exact path='/MyMessages' render={() =>  <MyMessages currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-                    <Route exact path='/NewMessage' render={() =>  <NewMessage currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+                    <Route exact path='/Home' render={() => <Home currentUser={currentUser} searchTerm={searchTerm}/>} />
+                    <Route exact path='/Register' render={() => <Register currentUser={currentUser} setCurrentUserState={setCurrentUserState}/>} />
+                    <Route exact path='/login' render={() => <Login currentUser={currentUser} setCurrentUserState={setCurrentUserState}/>} />
+                    <Route exact path='/NewPost' render={() =>  <NewPost currentUser={currentUser} />} />
+                    <Route exact path='/MyPosts' render={() =>  <MyPosts currentUser={currentUser} />} />
+                    <Route exact path='/MyMessages' render={() =>  <MyMessages currentUser={currentUser} />} />
+                    <Route exact path='/NewMessage' render={() =>  <NewMessage currentUser={currentUser} />} />
 
                 </section>
                 <section id="sidenav">
                     
                     {navStatus ? <Navbar 
                                     currentUser={currentUser} 
-                                    setCurrentUser={setCurrentUser}
-                                    currentPassword={currentPassword}
-                                    setCurrentPassword={setCurrentPassword}
+                                    currentUserState={currentUserState}
+                                    setCurrentUserState={setCurrentUserState}
                                     /> : ''}
 
                 </section>
@@ -67,3 +66,4 @@ const App = () => {
 }
 
 export default App;
+export {currentUser};
