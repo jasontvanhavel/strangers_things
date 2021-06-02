@@ -43,8 +43,6 @@ const Home = ({currentUser, searchTerm}) => {
         const postsToDisplay = searchTerm.length ? filteredPosts : posts;
     // }, [])
 
-    console.log(posts)
-
     return <>
     { currentUser ? 
         <>

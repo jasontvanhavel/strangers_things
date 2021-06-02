@@ -3,44 +3,42 @@ import axios from 'axios';
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft';
 
-const Register = () => {
+const Register = ({currentUser, setCurrentUser}) => {
     let [newUsername, setNewUsername] = useState('')
     let [newPassword, setNewPassword] = useState('')
+    let [message, setMessage] = useState('');
 
-    //store newUsername and newPassword in an object
-
-    // useEffect( () => {
-    //     setNewUsername(document.getElementById("username-input").value)
-    //     // console.log('use effect username:', newUsername)
-    //     setNewPassword(document.getElementById("password-input").value)
-    //     // console.log('password:', newPassword)
-    // }, [newUsername, newPassword])
-
-    async function postNewUser() {
+    async function register() {
         let newUser = {user: {username: newUsername, password: newPassword}}
-        console.log(newUser)
-        
-        console.log((await axios.post(BASE_URL+'/users/register', newUser)).data)
+
+        try {
+            let response = (await axios.post(BASE_URL+'/users/register', newUser)).data;
+            localStorage.setItem('currentUserToken', response.data.token)
+
+            if (response.success) {
+                setCurrentUser(newUser.user.username);
+                console.log(newUser)
+            } else {
+                setMessage(response.message)
+            }
+        } catch (error) {
+            console.error(error);
+        }
 
     }
 
     return(
         <>
     <h1>Please enter your new username and password</h1>
-    <h5 className="registration">*Username and password must be a minimum of 6 characters and a maximum of 40</h5>
-        <form onSubmit={(event) => {
+    <form onSubmit={(event) => {
             event.preventDefault();
 
             
-            postNewUser()
-            // setNewUsername(document.getElementById("username-input").value)
-            // setNewPassword(document.getElementById("password-input").value)
-
-            // console.log(newUsername)
-            // console.log(newPassword)
-
-        }}>
-            <div>
+            register()
+        }}>{ currentUser ? 
+                <> <h1>You are currently logged in as {currentUser}</h1></> 
+                :    
+            <><div>
                 <label htmlFor="username-input"></label>
                 <input 
                     type="text" 
@@ -65,7 +63,10 @@ const Register = () => {
                     ></input>
             </div>
             <button type='submit'>Submit</button>
+            </>
+                }
         </form>
+        <p>{message}</p>
         </>
     )
 }

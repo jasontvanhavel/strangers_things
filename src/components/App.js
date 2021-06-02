@@ -12,14 +12,14 @@ import NewMessage from './NewMessage';
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft';
 
+
+
 const App = () => {
 
     const [currentUser, setCurrentUser] = useState('')
     const [currentPassword, setCurrentPassword] = useState('')
     const [navStatus, setNavStatus] = useState(false) 
     const [searchTerm, setSearchTerm] = useState('')
-    
-    console.log(searchTerm)
 
     return <div id ="app">
         <Router>
@@ -43,7 +43,7 @@ const App = () => {
 
                     <Route exact path='/Home' render={() => <Home currentUser={currentUser} setCurrentUser={setCurrentUser} searchTerm={searchTerm}/>} />
                     <Route exact path='/Register' render={() => <Register currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-                    <Route exact path='/login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser} currentPassword={currentPassword} setCurrentPassword={setCurrentPassword}/>} />
+                    <Route exact path='/login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
                     <Route exact path='/NewPost' render={() =>  <NewPost currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/MyPosts' render={() =>  <MyPosts currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/MyMessages' render={() =>  <MyMessages currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />

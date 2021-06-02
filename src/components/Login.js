@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from 'react'
-import {Link} from 'react-router-dom'
 import axios from 'axios';
 
-const Login = ({currentUser, setCurrentUser, currentPassword, setCurrentPassword}) => {
+const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-uic-rm-web-ft';
 
-    //store Username and Password in an object
+const Login = ({currentUser, setCurrentUser}) => {
+    let [inputUsername, setInputUsername] = useState('');
+    let [inputPassword, setInputPassword] = useState('');
+    let [message, setMessage] = useState('');
 
-    useEffect( () => {
-        setCurrentUser(document.getElementById("username-input").value)
-        // console.log('use effect username:', Username)
-        setCurrentPassword(document.getElementById("password-input").value)
-        // console.log('password:', Password)
-    }, [currentUser, currentPassword])
+    async function login () {
+        let inputUser = {user: {username: inputUsername, password: inputPassword}}
 
-    let loginHandler = () => {
-            setCurrentUser(document.getElementById("username-input").value)
-            setCurrentPassword(document.getElementById("password-input").value)
-            // console.log(Username)
-            // console.log(Password)
+        try {
+            let response = (await axios.post(BASE_URL+'/users/login', inputUser)).data;
+            localStorage.setItem('currentUserToken', response.data.token)
+
+            setCurrentUser(inputUser.user.username);
+            console.log("currentUser:", currentUser)
+            console.log('inputUser.user.username', inputUser.user.username)
+            localStorage.setItem('currentUser', currentUser);
+
+
+        } catch (error) {
+            setMessage("Sorry, we do not recognize that username and password combination");
+        }
     }
 
     return(
@@ -30,6 +36,10 @@ const Login = ({currentUser, setCurrentUser, currentPassword, setCurrentPassword
                     id="username-input"
                     name="username-input" 
                     placeholder="Username"
+                    onChange={(event) => {
+                        setInputUsername(event.target.value);
+                        console.log(inputUsername)
+                    }}
                     ></input>
             </div>
             <div>
@@ -39,8 +49,17 @@ const Login = ({currentUser, setCurrentUser, currentPassword, setCurrentPassword
                     id="password-input"
                     name="password-input" 
                     placeholder="Password"
+                    onChange={(event) =>{
+                        setInputPassword(event.target.value);
+                    }}
                     ></input>
-            </div><Link to="/Home" className="reply-button" style={{textDecoration: 'none'}} onClick={loginHandler}>Submit</Link>
+            </div><div className="reply-button" style={{textDecoration: 'none'}}
+            onClick={() => {
+                login();
+                // setMessage("You are now logged in as " + currentUser)
+            }}>Submit</div>
+
+            <div id="message-div">{message}</div>
         </>
     )
 }
