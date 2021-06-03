@@ -64,7 +64,7 @@ const NewPost = ({currentUser, }) => {
                 <label htmlFor="new-post-description">Description</label>
                 <textarea name="new-post-description" id="new-post-description" placeholder="Description"></textarea>
             </div>
-            <input type="submit"></input>
+            <input type="submit" id="submit-button"></input>
         </form>
     </div>)
 }

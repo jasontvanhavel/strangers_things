@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import NavbarLink from "./NavbarLink";
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import './navbar.css';
@@ -18,6 +18,10 @@ const Navbar = ({currentUser, currentUserState, setCurrentUserState}) => {
     let handleOtherClick = () => {
 
     }
+
+    useEffect(() => {
+        setCurrentUserState(localStorage.getItem('currentUser'))
+    }, [localStorage.getItem('currentUser')])
 
     return <div id="navbar-div">
         {!(currentUserState) ? <>

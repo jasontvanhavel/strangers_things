@@ -32,7 +32,7 @@ const Home = ({currentUser, searchTerm}) => {
 
         const postMatches = function(post, term) {
             if (post.title.includes(term) || post.description.includes(term) ||
-                post.price.includes(term) || post.author.username.includes(term) || post.location.includes(term)){
+                post.price.includes(term) || post.author.username.includes(term)){
                     return true;
                 } else {
                     return false;

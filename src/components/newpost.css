@@ -37,3 +37,7 @@ label {
     align-items: flex-start;
 }
 
+#submit-button {
+    width:30%;
+    height:100%;
+}
