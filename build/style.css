@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    position:fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: rgb(255,88,80);
+    text-shadow: 0 0 0.5em rgb(255,88,80);;
+    height: 10vh;
+    width: 100%;
+    padding: 7px 15px;
+}
+
+header #navs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#navs .hamburger {
+    margin: 10px;
+    margin-top: 13px;
+    padding: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+
+}
+
+#header-border-bar {
+    position:fixed;
+    top:10vh;
+    width:100%;
+    box-shadow: 0 0 0.5vh 0.5vh rgb(255,88,80);;
+    height: 3px;
+    background-color: rgb(255,88,80);;
+}
+
+
+main { 
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+    width:100%;
+    min-height: 100vh;
+    padding-top:10px;
+}
+
+main #lefty {
+    position:fixed;
+    top: 10vh;
+    left:0px;
+    height: 100%;
+    width: 20%;
+    /* border: 3px solid red; */
+    color:rgb(255,88,80);;
+}
+
+main #content-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 12vh;
+    padding-left: 21%;
+    width:80%;
+    height:100%;
+    color: white;
+}
+
+main #sidenav {
+    position:fixed;
+    top: 10vh;
+    right:0px;
+    height: 100%;
+    width: 20%;
+    border: 3px solid rgba(0,0,0,0);
+    color:rgb(255,88,80);
+    text-align: right;
+    padding:10px;
+}
+
+.registration {
+    padding-bottom: 20px;
+}
+
+img {
+    height:40px;
+}
